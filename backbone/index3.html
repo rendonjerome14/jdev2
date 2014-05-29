@@ -1,0 +1,43 @@
+<!--jquery simple mousehover-->
+
+<!DOCTYPE html> 
+<html>
+	<head>
+		<title>Sample Website</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+	</head>
+	<body>
+
+	<dl>
+		<dt>What hours</dt>
+		<dd>24/7</dd>
+		<dt>What hours</dt>
+		<dd>24/7</dd>
+		<dt>What hours</dt>
+		<dd>24/7</dd>
+		<dt>What hours</dt>
+		<dd>24/7</dd>
+		<dt>What hours</dt>
+		<dd>24/7</dd>
+	</dl>
+	
+	<script src="js/jquery.js"></script>	
+	<script>
+			(function() {	
+				//var dd = $('dd');	//dd.hide() dd.show dd.fadein dd.slideDown
+				//dd.addClass('hide');
+				$('dd').filter(':nth-child(n+4)').addClass('hide');
+
+				$('dl').on('mouseenter', 'dt', function(){
+					$(this)
+						.next()
+							.slideDown(200)
+							.siblings('dd')
+								.slideUp(200);
+				})
+			})();
+	</script>
+
+
+	</body>
+</html>

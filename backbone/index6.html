@@ -1,0 +1,23 @@
+<!--sample form-->
+<!DOCTYPE html> 
+<html>
+	<head>
+		<title>Sample Website</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+	</head>
+	<body>
+		<a href='www.google.com'>Click Me!</a>
+
+	<script src="js/jquery.js"></script>	
+	
+	<script>
+		function doSomething(e){
+			e.preventDefault();
+			console.log(e);
+			console.log(this);
+		}
+		$('a').on('click', doSomething);
+	</script>
+
+	</body>
+</html>

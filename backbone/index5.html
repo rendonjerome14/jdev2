@@ -1,0 +1,109 @@
+<!--sample form-->
+<!DOCTYPE html> 
+<html>
+	<head>
+		<title>Sample Website</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+	</head>
+	<body>
+	<article>
+		<h2>Sample Blog</h2>
+		<p>
+			The Diploma in Six Sigma is a free online quality management course that describes techniques and tools which seek to improve the quality of process outputs.
+		</p>
+		<p>
+			Each Six Sigma project carried out within an organization follows a defined sequence of steps and has quantified value targets, for example: reduce process cycle time and reduce pollution. Get introduced to important Six Sigma concepts such as, Control Charts, Design of Experiments and Taguchi Methods. Managers can use six sigma to identify and solve supply chain problems. 
+		</p>
+		<p>
+			This free online course will be of great interest to all professionals who work in the areas of Six Sigma, Quality Management and Manufacturing who would like to learn more about the techniques and tools used in Six Sigma projects.
+		</p>
+		<p>
+			The Diploma in Six Sigma is a free online quality management course.
+		</p>
+	</article>
+
+	<div id ='contact'>
+		<h2>Add Comments</h2>
+		<form action=#>
+			<ul>
+				<li>
+					<label for="name">Name:</label>
+					<input name="name" id="name">
+				</li>
+
+				<li>
+					<label for="name">Name:</label>
+					<input name="name" id="name">
+				</li>
+
+				<li>
+					<label for="name">Name:</label>
+					<input name="name" id="name">
+				</li>
+
+				<li>
+					<input type="submit" value"Submit">
+				</li>
+
+			</ul>
+		</form>
+	</div>
+	
+	<script src="js/jquery.js"></script>	
+	
+	<script>
+		//$('article').append('Hello from Jerome') //append add below; prepend add on top; after after the tag
+		(function(){
+
+			$('html').addClass('js');
+			var contactForm = {
+				container: $('#contact'),
+				
+				config:{
+					effect: 'slideToggle',
+					speed: 300
+				},
+
+				init: function(config){
+					$.extend(this.config, config);
+
+					$('<button></button>', {
+						text: 'Contact Me'
+					})	
+						.insertAfter('article:first')
+						.on('click', this.show);
+				},
+
+				show: function(){
+						var cf = contactForm,
+							container = cf.container,
+							config = cf.config;
+
+						if (container.is(':hidden')){
+							contactForm.close.call(container);
+							container[config.effect](config.speed);
+							//console.log('showing');
+						}	
+				},
+
+				close: function(){ 
+					var $this = $(this);
+
+					if($this.find('span.close').length) return;
+
+					$('<span class=close>X</span>')
+						.prependTo(this)
+						.on('click', function(){
+							contactForm.container[contactForm.config.effect](contactForm.config.speed);
+						})
+				}
+			};
+
+			contactForm.init({
+				effect: 'fadeToggle',
+				speed: 300
+			});
+		})();
+	</script>
+	</body>
+</html>
